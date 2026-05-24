@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sentinel Consulting — Cybersecurity for Small Business</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0f0f0f;
+    --ink2: #3a3a3a;
+    --ink3: #7a7a7a;
+    --rule: #e0ddd8;
+    --accent: #1a3a5c;
+    --accent2: #c8422a;
+    --bg: #faf9f6;
+    --card: #ffffff;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 48px;
+    border-bottom: 0.5px solid var(--rule);
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 100;
+  }
+
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--accent);
+    letter-spacing: -0.3px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    color: var(--ink2);
+    text-decoration: none;
+    letter-spacing: 0.3px;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-cta {
+    background: var(--accent);
+    color: white !important;
+    padding: 7px 16px;
+    font-size: 13px !important;
+    text-decoration: none;
+    border-radius: 2px;
+  }
+
+  /* HERO */
+  .hero {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 96px 48px 80px;
+    border-bottom: 0.5px solid var(--rule);
+  }
+
+  .hero-tag {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 52px;
+    line-height: 1.15;
+    color: var(--accent);
+    letter-spacing: -1px;
+    margin-bottom: 24px;
+    max-width: 640px;
+  }
+
+  .hero p {
+    font-size: 18px;
+    color: var(--ink2);
+    max-width: 520px;
+    margin-bottom: 36px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+    padding: 13px 28px;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 2px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+
+  .btn-secondary {
+    background: none;
+    color: var(--accent);
+    padding: 13px 28px;
+    font-size: 14px;
+    text-decoration: none;
+    border: 1px solid var(--accent);
+    border-radius: 2px;
+    font-weight: 500;
+  }
+
+  /* TRUST BAR */
+  .trust-bar {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 32px 48px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    border-bottom: 0.5px solid var(--rule);
+    flex-wrap: wrap;
+  }
+
+  .trust-item {
+    font-size: 12px;
+    color: var(--ink3);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .trust-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent2);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* PROBLEM */
+  .section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 72px 48px;
+    border-bottom: 0.5px solid var(--rule);
+  }
+
+  .section-tag {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink3);
+    margin-bottom: 16px;
+  }
+
+  .section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    color: var(--accent);
+    letter-spacing: -0.5px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .section p {
+    font-size: 16px;
+    color: var(--ink2);
+    max-width: 580px;
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+
+  /* STATS */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 0.5px solid var(--rule);
+    margin-top: 40px;
+  }
+
+  .stat {
+    background: var(--card);
+    padding: 28px 24px;
+  }
+
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    color: var(--accent2);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--ink3);
+    line-height: 1.5;
+  }
+
+  /* SERVICES */
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    border: 0.5px solid var(--rule);
+    margin-top: 40px;
+  }
+
+  .service-card {
+    background: var(--card);
+    padding: 28px 24px;
+  }
+
+  .service-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 13px;
+    color: var(--accent2);
+    margin-bottom: 12px;
+  }
+
+  .service-title {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  .service-desc {
+    font-size: 13px;
+    color: var(--ink3);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  .service-price {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent2);
+  }
+
+  /* HOW IT WORKS */
+  .steps {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 20px;
+    padding: 24px 0;
+    border-bottom: 0.5px solid var(--rule);
+    align-items: flex-start;
+  }
+
+  .step:last-child { border-bottom: none; }
+
+  .step-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    color: var(--rule);
+    line-height: 1;
+    padding-top: 2px;
+  }
+
+  .step-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+
+  .step-desc {
+    font-size: 13px;
+    color: var(--ink3);
+    line-height: 1.6;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+    margin-top: 40px;
+  }
+
+  .about-text p {
+    font-size: 15px;
+    color: var(--ink2);
+    margin-bottom: 16px;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .credentials {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .credential {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 14px 16px;
+    background: var(--card);
+    border: 0.5px solid var(--rule);
+  }
+
+  .cred-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+
+  .cred-text {
+    font-size: 13px;
+    color: var(--ink2);
+    line-height: 1.5;
+  }
+
+  .cred-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--ink3);
+    margin-top: 2px;
+  }
+
+  /* CTA */
+  .cta-section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 72px 48px;
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .cta-section p {
+    font-size: 16px;
+    color: var(--ink3);
+    margin-bottom: 32px;
+    font-weight: 300;
+  }
+
+  .contact-box {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .contact-email {
+    font-size: 15px;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 0.5px solid var(--rule);
+    padding: 24px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+  }
+
+  .footer-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 15px;
+    color: var(--accent);
+  }
+
+  .footer-right {
+    font-size: 12px;
+    color: var(--ink3);
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .hero { padding: 64px 24px 48px; }
+    .hero h1 { font-size: 36px; }
+    .hero p { font-size: 16px; }
+    .section { padding: 48px 24px; }
+    .stats { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; }
+    .trust-bar { padding: 24px; gap: 16px; }
+    footer { padding: 20px 24px; flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Sentinel Consulting</div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta">Get a free audit</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-tag">Cybersecurity Consulting · Minneapolis, MN</p>
+  <h1>Your business deserves to be protected.</h1>
+  <p>Sentinel Consulting helps small businesses identify cybersecurity vulnerabilities before attackers do — through clear, jargon-free audits and actionable recommendations.</p>
+  <div class="hero-btns">
+    <a href="#contact" class="btn-primary">Book a free audit</a>
+    <a href="#services" class="btn-secondary">See our services</a>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><div class="trust-dot"></div>Based in Minneapolis, MN</div>
+  <div class="trust-item"><div class="trust-dot"></div>DECA International Competitor</div>
+  <div class="trust-item"><div class="trust-dot"></div>Serving local small businesses</div>
+  <div class="trust-item"><div class="trust-dot"></div>Plain-language reports — no tech jargon</div>
+</div>
+
+<!-- PROBLEM -->
+<section class="section" id="problem">
+  <p class="section-tag">The problem</p>
+  <h2>Small businesses are the #1 target for cyberattacks.</h2>
+  <p>43% of all cyberattacks target small businesses. Most don't have an IT department, a security plan, or any idea where their vulnerabilities are.</p>
+  <p>One phishing email. One shared password. One unpatched system. That's all it takes to expose your customer data, shut down your operations, and damage your reputation.</p>
+  <p>Sentinel Consulting gives you a clear picture of where you stand — and exactly what to do about it.</p>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">43%</div>
+      <div class="stat-label">of cyberattacks target small businesses</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">$200K</div>
+      <div class="stat-label">average cost of a small business data breach</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">60%</div>
+      <div class="stat-label">of small businesses close within 6 months of a major breach</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <p class="section-tag">Services</p>
+  <h2>Simple, affordable, and built for small business.</h2>
+  <p>No technical background needed. We speak plain English and give you recommendations you can actually act on.</p>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-title">Security Audit</div>
+      <div class="service-desc">A thorough on-site review of your passwords, network, devices, employee practices, email security, and data storage. You receive a written report with prioritized recommendations.</div>
+      <div class="service-price">$75 — $150 · approximately 1 hour on-site</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-title">Employee Awareness Workshop</div>
+      <div class="service-desc">A 30-minute presentation for your team covering phishing, password hygiene, safe browsing, and what to do if something goes wrong. Interactive, practical, and memorable.</div>
+      <div class="service-price">$100 · 30-minute on-site session</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-title">Security Starter Package</div>
+      <div class="service-desc">Audit + employee workshop combined. The most comprehensive option — you get a full picture of your vulnerabilities and a trained team to prevent future incidents.</div>
+      <div class="service-price">$200 · audit + workshop bundled</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <div class="service-title">Free Introductory Audit</div>
+      <div class="service-desc">Currently offering a limited number of free audits to local Minneapolis businesses. Get a full written report at no cost. Available on a first-come, first-served basis.</div>
+      <div class="service-price">Free · limited availability</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how">
+  <p class="section-tag">How it works</p>
+  <h2>Four steps to a more secure business.</h2>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div>
+        <div class="step-title">You reach out</div>
+        <div class="step-desc">Send us an email or fill out the contact form. We'll respond within 24 hours to schedule a free 10-minute introductory call.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div>
+        <div class="step-title">We schedule your audit</div>
+        <div class="step-desc">We come to your business at a time that works for you. The audit takes approximately one hour and causes zero disruption to your operations.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div>
+        <div class="step-title">You receive your report</div>
+        <div class="step-desc">Within 48 hours, you receive a clear written report covering every area we assessed, with findings ranked by priority and specific recommendations for each issue.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div>
+        <div class="step-title">We walk you through it</div>
+        <div class="step-desc">We schedule a brief follow-up call to walk through the report, answer any questions, and make sure you feel confident about next steps. No jargon, no upselling.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <p class="section-tag">About</p>
+  <h2>Built by someone who speaks both languages.</h2>
+
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Sentinel Consulting was founded by Prisha Sejpal, a high school student at Eden Prairie with a passion for cybersecurity and business strategy.</p>
+      <p>Most cybersecurity professionals speak in technical terms that small business owners can't act on. Prisha brings a business-first approach — translating complex security risks into clear, prioritized actions that any business owner can understand and implement.</p>
+      <p>Sentinel Consulting exists because small businesses deserve the same protection as large corporations — without the enterprise price tag or the technical overwhelm.</p>
+    </div>
+    <div class="credentials">
+      <div class="credential">
+        <div class="cred-dot"></div>
+        <div>
+          <div class="cred-text">DECA International Career Development Conference competitor</div>
+          <div class="cred-label">Business strategy & presentation</div>
+        </div>
+      </div>
+      <div class="credential">
+        <div class="cred-dot"></div>
+        <div>
+          <div class="cred-text">Founder, Books Without Borders — nonprofit book donation program</div>
+          <div class="cred-label">Community impact</div>
+        </div>
+      </div>
+      <div class="credential">
+        <div class="cred-dot"></div>
+        <div>
+          <div class="cred-text">Developer of AI-powered mental health support application</div>
+          <div class="cred-label">Technology & innovation</div>
+        </div>
+      </div>
+      <div class="credential">
+        <div class="cred-dot"></div>
+        <div>
+          <div class="cred-text">Based in Minneapolis, MN — serving the Twin Cities area</div>
+          <div class="cred-label">Local & community focused</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <h2>Ready to find out where you stand?</h2>
+  <p>Get in touch to book your free introductory audit. No commitment, no technical jargon — just a clear picture of your security.</p>
+  <div class="contact-box">
+    <a href="mailto:sentinelconsulting@gmail.com" class="contact-email">sentinelconsulting@gmail.com</a>
+    <a href="mailto:sentinelconsulting@gmail.com" class="btn-primary">Book your free audit</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Sentinel Consulting</div>
+  <div class="footer-right">Minneapolis, MN · Cybersecurity for Small Business</div>
+</footer>
+
+</body>
+</html>
